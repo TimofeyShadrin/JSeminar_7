@@ -11,13 +11,18 @@ public class App
         List<Product> hotDrinks = new ArrayList<>(Arrays.asList(
                 new HotDrink("Coffee", 90.00, 0.2, 80),
                 new HotDrink("Tea", 60.00, 0.3, 90),
-                new HotDrink("Cacao", 110.00, 0.5, 70),
+                new HotDrink("Cocoa", 110.00, 0.5, 70),
                 new HotDrink("Coffee", 110.00, 0.3, 80),
-                new Product("Cacao", 110.00),
+                new Product("Cocoa", 110.00),
                 new Drink("Coffee", 90.00, 0.3)
         ));
 
         VendingMachine machine = new HotDrinkMachine(hotDrinks);
-        System.out.println(machine.getProductByParam("Cacao", 110.00, 70));
+
+        String resultID = String.valueOf(machine.getProductByParam(3, 110.00, 70));
+        System.out.println(resultID);
+
+        String resultName = String.valueOf(machine.getProductByParam("Tea", 60.00, 90));
+        System.out.println(resultName);
     }
 }

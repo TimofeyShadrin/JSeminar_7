@@ -21,5 +21,5 @@ public abstract class VendingMachine {
         throw new IllegalStateException("Product not found");
     }
 
-    public abstract Product getProductByParam (String name, Double cost, Integer temp);
+    public abstract <Name, Cost, Temp> Product getProductByParam (Name nameOrID, Cost cost, Temp temp);
 }

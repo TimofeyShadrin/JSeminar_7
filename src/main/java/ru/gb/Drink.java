@@ -16,7 +16,8 @@ public class Drink extends Product{
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + super.getName() + '\'' +
+                "id=" + super.getId() +
+                ", name='" + super.getName() + '\'' +
                 ", cost=" + super.getCost() +
                 ", volume=" + volume +
                 '}';
