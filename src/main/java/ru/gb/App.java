@@ -28,5 +28,8 @@ public class App
 
         String resultName = String.valueOf(machine.getProductByParam("Coffee", 90.00, 80));
         logger.info(resultName);
+
+        String result = String.valueOf(machine.getProductByParam("Coffee", 90.00, 70));
+        logger.info(result);
     }
 }

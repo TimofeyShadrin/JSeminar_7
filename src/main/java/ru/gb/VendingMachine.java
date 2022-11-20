@@ -14,5 +14,5 @@ public abstract class VendingMachine {
         return products;
     }
 
-    public abstract <Name, Cost, Temp> List<Product> getProductByParam (Name nameOrID, Cost cost, Temp temp);
+    public abstract <Name> List<Product> getProductByParam (Name nameOrID, Double cost, Integer temp);
 }

@@ -10,7 +10,7 @@ public class HotDrinkMachine extends VendingMachine {
     }
 
     @Override
-    public <Name, Cost, Temp> List<Product> getProductByParam(Name nameOrID, Cost cost, Temp temp) {
+    public <Name> List<Product> getProductByParam(Name nameOrID, Double cost, Integer temp) {
         List<Product> hotDrink = getProducts().stream()
                 .filter(item -> (item.getClass().getSimpleName()).equals("HotDrink"))
                 .collect(Collectors.toList());
