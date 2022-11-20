@@ -3,6 +3,7 @@ package ru.gb;
 import java.util.List;
 
 public abstract class VendingMachine {
+
     private final List<Product> products;
 
     public VendingMachine(List<Product> products) {
@@ -19,4 +20,6 @@ public abstract class VendingMachine {
         }
         throw new IllegalStateException("Product not found");
     }
+
+    public abstract Product getProductByParam (String name, Double cost, Integer temp);
 }

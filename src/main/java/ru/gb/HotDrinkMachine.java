@@ -8,6 +8,7 @@ public class HotDrinkMachine extends VendingMachine {
         super(products);
     }
 
+    @Override
     public Product getProductByParam (String name, Double cost, Integer temp) {
         for (Product item : super.getProducts()) {
             if (name.equals(item.getName()) &&

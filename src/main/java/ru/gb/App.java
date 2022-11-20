@@ -17,7 +17,7 @@ public class App
                 new Drink("Coffee", 90.00, 0.3)
         ));
 
-        HotDrinkMachine machine = new HotDrinkMachine(hotDrinks);
+        VendingMachine machine = new HotDrinkMachine(hotDrinks);
         System.out.println(machine.getProductByParam("Cacao", 110.00, 70));
     }
 }
