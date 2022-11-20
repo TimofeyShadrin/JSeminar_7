@@ -1,6 +1,7 @@
 package ru.gb;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HotDrinkMachine extends VendingMachine {
 
@@ -9,22 +10,23 @@ public class HotDrinkMachine extends VendingMachine {
     }
 
     @Override
-    public <Name, Cost, Temp> Product getProductByParam (Name nameOrID, Cost cost, Temp temp) {
+    public <Name, Cost, Temp> List<Product> getProductByParam(Name nameOrID, Cost cost, Temp temp) {
+        List<Product> hotDrink = getProducts().stream()
+                .filter(item -> (item.getClass().getSimpleName()).equals("HotDrink"))
+                .collect(Collectors.toList());
         String type = nameOrID.getClass().getSimpleName();
         if (type.equals("String")) {
-            for (Product item : super.getProducts()) {
-                if (nameOrID.equals(item.getName()) &&
+            return hotDrink.stream()
+                    .filter(item -> nameOrID.equals(item.getName()) &&
                         cost.equals(item.getCost()) &&
                         temp.equals(((HotDrink) (item)).getTemp()))
-                    return item;
-            }
-        } else if (type.equals("Integer")) {
-            for (Product item : super.getProducts()) {
-                if (nameOrID.equals(item.getId()) &&
-                        cost.equals(item.getCost()) &&
-                        temp.equals(((HotDrink) (item)).getTemp()))
-                    return item;
-            }
+                    .collect(Collectors.toList());
+            } else if (type.equals("Integer")) {
+            return hotDrink.stream()
+                    .filter(item -> nameOrID.equals(item.getId()) &&
+                            cost.equals(item.getCost()) &&
+                            temp.equals(((HotDrink) (item)).getTemp()))
+                    .collect(Collectors.toList());
         }
         throw new IllegalStateException("Product not found!");
     }

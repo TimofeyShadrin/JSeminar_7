@@ -14,12 +14,5 @@ public abstract class VendingMachine {
         return products;
     }
 
-    public Product getProductByName (String name) {
-        for (Product item: this.products) {
-            if (name.equals(item.getName())) return item;
-        }
-        throw new IllegalStateException("Product not found");
-    }
-
-    public abstract <Name, Cost, Temp> Product getProductByParam (Name nameOrID, Cost cost, Temp temp);
+    public abstract <Name, Cost, Temp> List<Product> getProductByParam (Name nameOrID, Cost cost, Temp temp);
 }
